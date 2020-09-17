@@ -1,28 +1,10 @@
 <template>
   <div class="main-layout">
+    <navbar-component />
+
     <header-component />
 
-    <div class="hero common-hero">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="hero-ct">
-              <h1>Movie Listing - Grid Fullwidth</h1>
-              <ul class="breadcumb">
-                <li class="active">
-                  <a href="#">Home</a>
-                </li>
-                <li>
-                  <span class="ion-ios-arrow-right"></span> movie listing
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <main class="bg-dark">
+    <main class="grey lighten-1">
       <router-view />
     </main>
 
@@ -31,16 +13,20 @@
 </template>
 
 <script>
+import NavbarComponent from "../components/NavbarComponent";
 import HeaderComponent from "../components/HeaderComponent";
 import FooterComponent from "../components/FooterComponent";
 export default {
   name: "MainLayout",
+  data() {
+    return {
+      menuVisible: true
+    };
+  },
   components: {
+    NavbarComponent,
     HeaderComponent,
     FooterComponent
   }
 };
 </script>
-
-<style>
-</style>

@@ -1,97 +1,59 @@
 <template>
-  <header class="ht-header">
+  <div class="hero common-hero">
     <div class="container">
-      <nav class="navbar navbar-default navbar-custom">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header logo">
-          <div
-            class="navbar-toggle"
-            data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1"
-          >
-            <span class="sr-only">Toggle navigation</span>
-            <div id="nav-icon1">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
+      <div class="row">
+        <div class="col s12">
+          <div class="hero-ct">
+            <h1>Block Buster - Movies for you</h1>
           </div>
-          <a href="index-2.html">
-            <img class="logo" src="/images/logo1.png" alt width="119" height="58" />
-          </a>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav flex-child-menu menu-left">
-            <li class="hidden">
-              <a href="#page-top"></a>
-            </li>
-            <li class="dropdown first">
-              <router-link class="btn btn-default dropdown-toggle lv1" :to="{ name: 'home' }">Home</router-link>
-            </li>
-            <li class="dropdown first">
-              <router-link
-                class="btn btn-default dropdown-toggle lv1"
-                :to="{ name: 'movies' }"
-              >movies</router-link>
-            </li>
-            <li class="dropdown first">
-              <router-link
-                class="btn btn-default dropdown-toggle lv1"
-                :to="{ name: 'celebrities' }"
-              >celebrities</router-link>
-            </li>
-            <li class="dropdown first">
-              <router-link class="btn btn-default dropdown-toggle lv1" :to="{ name: 'news' }">news</router-link>
-            </li>
-          </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-      </nav>
+      </div>
     </div>
-  </header>
+  </div>
 </template>
 
 <script>
-import { upperCase } from "lodash";
-export default {
-  name: "HeaderComponent",
-  data() {
-    return {
-      links: [
-        {
-          id: 1,
-          name: "home",
-          url: "home"
-        },
-        {
-          id: 2,
-          name: "movies",
-          url: "movies"
-        },
-        {
-          id: 3,
-          name: "celebrities",
-          url: "celebrities"
-        },
-        {
-          id: 4,
-          name: "news",
-          url: "news"
-        },
-        {
-          id: 5,
-          name: "community",
-          url: "community"
-        }
-      ]
-    };
-  },
-  methods: {
-    upperCase
-  }
-};
+export default {};
 </script>
 
-<style>
+<style lang="scss" scoped>
+.hero {
+  background-position: center;
+  text-align: center;
+  background-size: cover;
+  position: relative;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 445px;
+  .hero-ct {
+    padding-top: 80px;
+    padding-bottom: 20px;
+  }
+  h1 {
+    font-family: "Dosis", sans-serif;
+    font-size: 36px;
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  &:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+.common-hero {
+  height: 385px;
+  background: url("/images/celeb-hero-single.jpg") no-repeat;
+  &:before {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
 </style>
