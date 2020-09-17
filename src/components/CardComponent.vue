@@ -8,12 +8,19 @@
     <div class="card-content">
       <router-link
         :to="{ name: 'movie', params: { id: movie.id } }"
-        class="activator grey-text text-darken-4 truncate"
+        class="text-black truncate"
       >{{ movie.title }}</router-link>
       <a href="#!" class="activator">
         <i class="material-icons right">more_vert</i>
       </a>
       <p>Release date: {{ movie.release_date }}</p>
+      <star-rating
+        :rating="movie.vote_average"
+        :read-only="true"
+        :increment="0.1"
+        :star-size="15"
+        :max-rating="10"
+      />
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">
@@ -27,6 +34,7 @@
 
 <script>
 import { IMAGE_PATH } from "../constants/consts";
+
 export default {
   name: "CardComponent",
   props: {
@@ -42,10 +50,18 @@ export default {
   }
 };
 </script>
-<style scoped>
+
+<style lang="scss" scoped>
 .card {
   height: 450px;
   width: 300px;
   margin: 10px;
+  .card-content {
+    padding: 15px;
+
+    p {
+      font-weight: bolder;
+    }
+  }
 }
 </style>
