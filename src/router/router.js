@@ -21,6 +21,7 @@ const routes = [
     path: "/movies/:id",
     name: 'movie',
     component: Movie,
+    props: true,
   },
   {
     path: "/celebrities",
@@ -31,6 +32,7 @@ const routes = [
     path: "/celebrities/:id",
     name: "celebrity",
     component: Celebrity,
+    props: true,
   },
   {
     path: "/news",

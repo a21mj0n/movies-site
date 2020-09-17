@@ -4,7 +4,7 @@
 
     <header-component />
 
-    <main class="grey lighten-1">
+    <main class="grey lighten-1 main-page">
       <router-view />
     </main>
 
@@ -30,3 +30,8 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.main-page {
+  min-height: 100vh;
+}
+</style>

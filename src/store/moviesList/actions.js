@@ -14,3 +14,17 @@ export function fetchEmployees({ commit }, { movie_id, page }) {
          commit('employees', response.data.results)
       })
 }
+
+export function fetchPopularMovies({ commit }, page) {
+   axios.get(`${API_BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`)
+      .then(response => {
+         commit('popular', response.data)
+      })
+}
+
+export function fetchMovie({ commit }, movie_id) {
+   axios.get(`${API_BASE_URL}/movie/${movie_id}?api_key=${API_KEY}&language=en-US`)
+      .then(response => {
+         commit('movie', response.data)
+      })
+}
