@@ -3,7 +3,7 @@ import Celebrities from "../pages/Celebrities";
 import Celebrity from "../pages/Celebrity";
 import Movies from "../pages/Movies";
 import Movie from "../pages/Movie"
-import News from "../pages/News";
+import Search from "../pages/Search";
 
 
 const routes = [
@@ -35,9 +35,9 @@ const routes = [
     props: true,
   },
   {
-    path: "/news",
-    name: 'news',
-    component: News,
+    path: "/search",
+    name: 'search',
+    component: Search,
   },
 ];
 export default routes;

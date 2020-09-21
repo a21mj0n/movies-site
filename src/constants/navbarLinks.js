@@ -13,8 +13,8 @@ export const NAVBAR_LINKS = [
   },
   {
     id: 4,
-    name: "news",
-    url: "news",
-    icon: "speaker_notes"
+    name: "search",
+    url: "search",
+    icon: "search"
   }
 ]

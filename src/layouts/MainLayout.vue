@@ -2,9 +2,7 @@
   <div class="main-layout">
     <navbar-component />
 
-    <header-component />
-
-    <main class="grey lighten-1 main-page">
+    <main>
       <router-view />
     </main>
 
@@ -14,7 +12,6 @@
 
 <script>
 import NavbarComponent from "../components/NavbarComponent";
-import HeaderComponent from "../components/HeaderComponent";
 import FooterComponent from "../components/FooterComponent";
 export default {
   name: "MainLayout",
@@ -25,13 +22,7 @@ export default {
   },
   components: {
     NavbarComponent,
-    HeaderComponent,
     FooterComponent
   }
 };
 </script>
-<style lang="scss" scoped>
-.main-page {
-  min-height: 100vh;
-}
-</style>

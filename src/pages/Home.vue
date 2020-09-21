@@ -1,5 +1,36 @@
 <template>
   <div class="home-page-container">
+    <div class="w-100">
+      <carousel
+        :loop="true"
+        :autoplay="true"
+        :perPage="1"
+        paginationActiveColor="red"
+        paginationColor="#000"
+        :paginationPadding="10"
+        paginationPosition="bottom-overlay"
+      >
+        <slide>
+          <img src="/images/image191.jpg" alt="image" width="100%" height="800px" />
+        </slide>
+        <slide>
+          <img src="/images/image21.jpg" alt="image" width="100%" height="800px" />
+        </slide>
+        <slide>
+          <img src="/images/image171.jpg" alt="image" width="100%" height="800px" />
+        </slide>
+        <slide>
+          <img src="/images/image141.jpg" alt="image" width="100%" height="800px" />
+        </slide>
+        <slide>
+          <img src="/images/image151.jpg" alt="image" width="100%" height="800px" />
+        </slide>
+        <slide>
+          <img src="/images/image161.jpg" alt="image" width="100%" height="800px" />
+        </slide>
+      </carousel>
+    </div>
+
     <div class="center-align videos-title--margin">
       <span class="videos-title">Popular Videos</span>
     </div>
@@ -24,7 +55,7 @@
       <div class="popular">
         <card-component v-for="movie in popular.results" :key="movie.id" :movie="movie"></card-component>
       </div>
-      <div class="center-align videos-title--margin">
+      <div class="d-flex justify-content-center mt-4">
         <paginate
           :page-count="popular.total_pages"
           :click-handler="changePage"
@@ -69,13 +100,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.carusel {
+  width: 93%;
+}
+
 .popular {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-}
-.home-page-container {
-  padding: 10px;
 }
 .videos-title {
   border-bottom: 5px solid #000000;

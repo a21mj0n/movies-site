@@ -8,10 +8,6 @@
       </div>
 
       <div class="right-side">
-        <form class="flex">
-          <input v-model="query" type="text" placeholder="Search..." style="color: #fff" />
-        </form>
-
         <ul class="right hide-on-med-and-down">
           <li v-for="link in links" :key="link.id" class="hvr-underline-from-center">
             <router-link :to="{ name: link.url }">
@@ -22,14 +18,13 @@
         </ul>
       </div>
     </div>
-    {{ query ? search : 'query not given' }}
   </nav>
 </template>
 
 <script>
 import { upperCase } from "lodash";
-import { mapState } from "vuex";
 import { NAVBAR_LINKS } from "../constants/navbarLinks";
+import { mapState } from "vuex";
 
 export default {
   name: "HeaderComponent",
@@ -43,24 +38,13 @@ export default {
     };
   },
   computed: {
-    ...mapState("moviesList", ["employees"]),
-    ...mapState("search", ["search"])
+    ...mapState("moviesList", ["employees"])
   },
   created() {
     this.$store.dispatch("moviesList/fetchEmployees", {
       movie_id: this.movie_id,
       page: this.page
     });
-  },
-  watch: {
-    query(newQuery) {
-      if (newQuery) {
-        this.$store.dispatch("search/searchMulti", {
-          query: newQuery,
-          page: this.page
-        });
-      }
-    }
   },
   methods: {
     upperCase

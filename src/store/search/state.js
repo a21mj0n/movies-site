@@ -1,5 +1,5 @@
 export default function () {
    return {
-      search: {}
+      search: JSON.parse(localStorage.getItem('search'))
    }
 }
