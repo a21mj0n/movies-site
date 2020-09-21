@@ -1,7 +1,11 @@
 <template>
   <div class="row w-100 py-3 px-3">
     <div class="col-md-4">
-      <img :src="imagePath + movie.poster_path" :alt="movie.title" class="img-fluid" />
+      <img
+        :src="movie.poster_path ? imagePath + movie.poster_path : '/images/cm-img.png'"
+        :alt="movie.title"
+        class="img-fluid"
+      />
       <a :href="movie.homepage" class="btn btn-info btn-block mt-2">
         {{ upperCase('Watch trailer') }}
         <i class="material-icons left">play_arrow</i>
@@ -30,22 +34,23 @@
           <p>{{ movie.overview }}</p>
 
           <div class="row">
-            <div class="col-4">
+            <div class="col-4" v-if="movie.genres !== null">
               <h5 class="text-danger">Genres:</h5>
               <b-list-group class="mb-3">
                 <b-list-group-item v-for="genre in movie.genres" :key="genre.id">{{ genre.name }}</b-list-group-item>
               </b-list-group>
             </div>
-            <div class="col-4">
+            <div class="col-4" v-if="movie.spoken_languages !== null">
               <h5 class="text-danger">Spoken Languages:</h5>
               <b-list-group class="mb-3">
-                <b-list-group-item
-                  v-for="language in movie.spoken_languages"
-                  :key="language.id"
-                >{{ iso.getName(language.iso_639_1) }}</b-list-group-item>
+                <b-list-group-item v-for="language in movie.spoken_languages" :key="language.id">
+                  {{ iso.getName(language.iso_639_1)
+                  ? iso.getName(language.iso_639_1)
+                  : 'No Language'}}
+                </b-list-group-item>
               </b-list-group>
             </div>
-            <div class="col-4">
+            <div class="col-4" v-if="movie.production_countries !== null">
               <h5 class="text-danger">Production Countries:</h5>
               <b-list-group class="mb-3">
                 <b-list-group-item
@@ -56,7 +61,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-4">cast & crew</div>
 
         <div class="px-3">
           <h5>Production companies :</h5>
