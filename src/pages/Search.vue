@@ -10,7 +10,7 @@
       />
       <button class="btn btn-primary" @click="searchMulti">Search</button>
     </div>
-    <div v-if="search.results">
+    <div v-if="search.results && query !== null">
       <ul
         type="none"
         v-for="movie in search.results"
@@ -24,7 +24,11 @@
               <b-col md="6">
                 <router-link :to="{ name: 'movie', params: { id: movie.id } }">
                   <b-card-img
-                    :src="movie.backdrop_path !== null ? imagePath + movie.backdrop_path : '/images/cm-img.png' "
+                    :src="
+                      movie.backdrop_path !== null
+                        ? imagePath + movie.backdrop_path
+                        : '/images/cm-img.png'
+                    "
                     :alt="movie.title"
                     class="rounded-0 h-100"
                   ></b-card-img>
@@ -35,7 +39,10 @@
                   <h2 class="text-dark">
                     <router-link
                       :to="{ name: 'movie', params: { id: movie.id } }"
-                    >{{ !movie.title ? movie.name : movie.title }}</router-link>
+                      >{{
+                        !movie.title ? movie.name : movie.title
+                      }}</router-link
+                    >
                   </h2>
                   <b-card-text>
                     <star-rating
@@ -45,7 +52,9 @@
                       :star-size="15"
                       :max-rating="10"
                     />
-                    <p class="mt-2">{{ truncate(movie.overview, {'length': 400}) }}</p>
+                    <p class="mt-2">
+                      {{ truncate(movie.overview, { length: 400 }) }}
+                    </p>
                   </b-card-text>
                 </b-card-body>
               </b-col>
@@ -54,10 +63,14 @@
         </li>
       </ul>
     </div>
-    <div
-      v-else
-      class="display-2 d-flex justify-content-center align-items-center"
-    >nichevo ne naydeno</div>
+    <div v-else class="d-flex justify-content-center align-items-center empty">
+      <div class="text-center">
+        <i class="material-icons">error</i>
+        <h3>
+          Поиск фильмов
+        </h3>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -96,5 +109,11 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.empty {
+  height: 100vh;
+  .material-icons {
+    font-size: 150px;
+  }
+}
 </style>
